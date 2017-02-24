@@ -1,7 +1,7 @@
 ## Title: ESO Master Recipe List Alt Format
 ## Author: |c99CCEFsilvereyes|r
 ## Description: Adds characters that don't know the recipe to the "known by" and "craftable by" tooltips provided by ESO Master Recipe List
-## Version: 1.1.0
+## Version: 1.1.1
 ## APIVersion: 100018
 ## DependsOn: MasterRecipeList
 

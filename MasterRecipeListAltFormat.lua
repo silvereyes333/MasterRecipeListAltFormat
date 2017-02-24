@@ -3,7 +3,7 @@ local addon = {
     name = addonName,
     title = "ESO Master Recipe List Alt Format",
     author = "|c99CCEFsilvereyes|r",
-    version = "1.1.0",
+    version = "1.1.1",
 }
 
 -- Color configuration
@@ -131,6 +131,11 @@ local function TooltipAddLine(control, text, font, r, g, b, lineAnchor, modifyTe
     -- Not in a reformat. So, no special processing. Just pass through.
     --else
     end
+    
+    -- Fix issue with default text color getting set to black. I have no clue why this is necessary.
+    if r == nil then r = 1 end
+    if g == nil then g = 1 end
+    if b == nil then b = 1 end
     
     -- Add the line to the tooltip
     originalAddLines[control](control, text, font, r, g, b, lineAnchor, modifyTextType, textAlignment, setToFullSize)
