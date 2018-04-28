@@ -3,7 +3,7 @@ local addon = {
     name = addonName,
     title = "ESO Master Recipe List Alt Format",
     author = "|c99CCEFsilvereyes|r",
-    version = "1.1.5",
+    version = "1.1.6",
 }
 
 -- Color configuration
@@ -164,7 +164,7 @@ local function OnAddonLoaded(event, name)
     craftableByHeader = mrlStrings.ESOMRL_CRAFTABLE
     
     -- Hook tooltip AddLine and AddVerticalPadding functions
-    for _, tooltip in ipairs({ItemTooltip, PopupTooltip}) do
+    for _, tooltip in ipairs({ItemTooltip, ESOMRL_MainFrameRecipeTooltip or PopupTooltip}) do
         originalAddLines[tooltip] = tooltip.AddLine
         originalAddVerticalPaddings[tooltip] = tooltip.AddVerticalPadding
         tooltip.AddLine = TooltipAddLine
