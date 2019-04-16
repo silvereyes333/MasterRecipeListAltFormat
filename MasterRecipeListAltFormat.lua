@@ -3,7 +3,7 @@ local addon = {
     name = addonName,
     title = "ESO Master Recipe List Alt Format",
     author = "|c99CCEFsilvereyes|r",
-    version = "1.1.7",
+    version = "1.1.8",
 }
 
 -- Color configuration
@@ -153,11 +153,18 @@ local function OnAddonLoaded(event, name)
     -- Populate list of characters that have been scanned by ESO Master Recipe List
     local accountName = GetDisplayName()
     local savedVars = MasterRecipeList[GetWorldName()] or MasterRecipeList["Default"]
-    for characterName, _ in pairs(savedVars[accountName]) do
+    for characterId, characterDetails in pairs(savedVars[accountName]) do
+        local characterName
+        if characterDetails["$LastCharacterName"] then
+            characterName = characterDetails["$LastCharacterName"]
+        else
+            characterName = characterId
+        end
         if characterName ~= "$AccountWide" then
             knownCharsByName[characterName] = true
         end
     end
+    knownCharsByName[GetUnitName("player")] = true
     
     -- Store the tooltip headers used to signal that the following line(s) represents a list of alts
     local mrlStrings = ESOMRL:GetLanguage()
