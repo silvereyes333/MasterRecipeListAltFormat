@@ -3,7 +3,7 @@ local addon = {
     name = addonName,
     title = "ESO Master Recipe List Alt Format",
     author = "silvereyes",
-    version = "1.1.9",
+    version = "1.1.10",
 }
 
 -- Color configuration
